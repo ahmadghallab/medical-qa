@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\TopicController;
 use Illuminate\Http\Request;
@@ -74,3 +75,22 @@ Route::post('/titles/{id}', [TitleController::class, 'update'])
 
 Route::delete('/titles/{id}', [TitleController::class, 'destroy'])
     ->name('title.delete');
+
+// Questions
+Route::get('/questions', [QuestionController::class, 'index'])
+    ->name('question.index');
+
+Route::get('/questions/title/{titleId}', [QuestionController::class, 'indexByTitle'])
+    ->name('question.indexByTitle');
+
+Route::get('/questions/{id}', [QuestionController::class, 'show'])
+    ->name('question.show');
+
+Route::post('/questions', [QuestionController::class, 'store'])
+    ->name('question.create');
+
+Route::post('/questions/{id}', [QuestionController::class, 'update'])
+    ->name('question.update');
+
+Route::delete('/questions/{id}', [QuestionController::class, 'destroy'])
+    ->name('question.delete');
