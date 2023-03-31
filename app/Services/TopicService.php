@@ -13,7 +13,7 @@ class TopicService
 {
   public function index()
   {
-    $topics = new TopicCollection(Topic::paginate());
+    $topics = new TopicCollection(Topic::paginate(25));
 
     return response()->success(200, $topics);
   }

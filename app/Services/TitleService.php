@@ -13,7 +13,7 @@ class TitleService
 {
   public function index()
   {
-    $titles = new TitleCollection(Title::paginate());
+    $titles = new TitleCollection(Title::paginate(25));
 
     return response()->success(200, $titles);
   }

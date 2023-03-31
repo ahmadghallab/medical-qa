@@ -13,7 +13,7 @@ class QuestionService
 {
   public function index()
   {
-    $questions = new QuestionCollection(Question::paginate());
+    $questions = new QuestionCollection(Question::paginate(25));
 
     return response()->success(200, $questions);
   }

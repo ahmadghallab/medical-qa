@@ -13,7 +13,7 @@ class BranchService
 {
   public function index()
   {
-    $branches = new BranchCollection(Branch::paginate());
+    $branches = new BranchCollection(Branch::paginate(25));
 
     return response()->success(200, $branches);
   }
