@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Title::class);
             $table->text('question');
+            $table->text('question_html');
             $table->text('answer');
             $table->text('reference')->nullable();
             $table->timestamps();

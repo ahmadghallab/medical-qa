@@ -28,6 +28,7 @@ class StoreQuestionRequest extends FormRequest
         return [
             'title_id' => 'required|int',
             'question' => 'required',
+            'question_html' => 'required',
             'answer' => 'required',
             'reference' => 'sometimes|required',
         ];
@@ -38,6 +39,7 @@ class StoreQuestionRequest extends FormRequest
         return [
             'title_id' => 'Topic is required',
             'question' => 'Question is required',
+            'question_html' => 'Question is required',
             'answer' => 'Answer is required',
             'reference' => 'reference can not be empty',
         ];
