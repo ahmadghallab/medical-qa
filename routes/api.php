@@ -1,26 +1,17 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\TopicController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Authentication
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/create-account', [AuthController::class, 'createAccount']);
+Route::get('/profile', [AuthController::class, 'profile'])->middleware('auth:sanctum');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 // Branches
 Route::get('/branches', [BranchController::class, 'index'])
